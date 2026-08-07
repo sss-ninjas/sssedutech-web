@@ -203,6 +203,13 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .m-item .ph{height:var(--h);background:linear-gradient(135deg,#1a1a1a,#0d0d0d);display:grid;place-items:center;color:var(--muted);font-weight:600;font-size:15px;letter-spacing:1px;text-transform:uppercase;border:1px solid var(--line);position:relative;transition:.4s}
 .m-item .ph::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(245,179,1,.15),transparent 50%)}
 .m-item:hover .ph{transform:scale(1.04);border-color:rgba(245,179,1,.4)}
+.gallery-img{
+   width: 100%;
+   height: 100%;
+   object-fit:cover;
+   display:block;
+   border-radius:var(--radius);
+}
 
 /* FAQ */
 .faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
