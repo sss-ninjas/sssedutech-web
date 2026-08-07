@@ -208,7 +208,23 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
    height: 100%;
    object-fit:cover;
    display:block;
-   border-radius:var(--radius);
+   transition: transform 0.3s ease;
+}
+.placement-label{
+   position: absolute;
+   left:0;
+   right:0;
+   bottom: 0;
+   padding: 18px;
+   text-align: center;
+   color: white;
+   font-size: 18px;
+   font-weight: 700;
+   background: linear-gradient(transparent, rgba(0,0,0,0.8));
+   z-index: 2;
+}
+.m-item:hover .gallery-img{
+   transform: scale(1.04));
 }
 
 /* FAQ */
