@@ -277,9 +277,9 @@ const GALLERY = [
   { title: "Classroom",images: [] },
   { title: "Placement Day", 
     images: [
-      { src: "./gallery/s1.jpeg", cap: " " },
-      { src: "./gallery/s2.jpeg", cap: " " },
-      { src: "./gallery/s3.jpeg", cap: " " }
+      { src: "./images/s1.jpeg", cap: " " },
+      { src: "./images/s2.jpeg", cap: " " },
+      { src: "./images/s3.jpeg", cap: " " }
     ] },
   { title: "Graduation",    images: [] },
   { title: "Hackathon",     images: [] },
