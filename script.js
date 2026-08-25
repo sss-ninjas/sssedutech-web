@@ -279,7 +279,8 @@ const GALLERY = [
     images: [
       { src: "./images/s1.jpeg", cap: " " },
       { src: "./images/s2.jpeg", cap: " " },
-      { src: "./images/s3.jpeg", cap: " " }
+      { src: "./images/s3.jpeg", cap: " " },
+      { src: "./images/s4.jpeg", cap: " " }
     ] },
   { title: "Graduation",    images: [] },
   { title: "Hackathon",     images: [] },
