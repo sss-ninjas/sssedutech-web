@@ -93,9 +93,9 @@ function renderCourses(filter=""){
 }
 
 // --- Loader ---
-window.addEventListener("load", () => {
-  setTimeout(()=>document.getElementById("loader").classList.add("hide"), 500);
-});
+function hideLoader(){ const l=document.getElementById("loader"); if(l) l.classList.add("hide"); }
+if(document.readyState === "complete"){ setTimeout(hideLoader, 500); }
+else { window.addEventListener("load", () => setTimeout(hideLoader, 500)); }
 
 // --- Navbar / mobile ---
 const nav = document.getElementById("navbar");
@@ -267,3 +267,104 @@ document.getElementById("courseSearch").addEventListener("input", e=>{
 renderCourses();
 document.querySelectorAll("[data-count]").forEach(el=>counterIO.observe(el));
 observeReveal();
+
+/* ================= Campus & Culture carousels =================
+   ADD YOUR IMAGES HERE — put files in /public/gallery/ and list them below.
+   Example: { src: "gallery/classroom-1.jpg", cap: "Live Python batch" }
+   Leave an array empty to show a placeholder slide.
+================================================================ */
+const GALLERY = [
+  { title: "Classroom",     
+    images: [] },
+  { title: "Placement Day", 
+    images: [
+      { src: "./gallery/s1.jpeg", cap: " " },
+      { src: "./gallery/s2.jpeg", cap: " " },
+      { src: "./gallery/s3.jpeg", cap: " " }
+    ] },
+  { title: "Graduation",    images: [] },
+  { title: "Hackathon",     images: [] },
+  { title: "Workshop",      
+    images: [
+      {src: "./gallery/workshop1.jpeg", cap:" "},
+      {src: "./gallery/workshop2.jpeg", cap:" "}
+    ] },
+  { title: "Mentors",       images: [] },
+  { title: "Labs",          images: [] },
+  { title: "Community",     images: [] }
+];
+
+(function buildGallery(){
+  const grid = document.getElementById("galGrid");
+  if(!grid) return;
+
+  GALLERY.forEach(div => {
+    const imgs = div.images && div.images.length ? div.images : null;
+    const card = document.createElement("div");
+    card.className = "gal-card reveal";
+    card.innerHTML = `
+      <div class="gc-head">
+        <div class="gc-title">${div.title}</div>
+        <div class="gc-count">${imgs ? imgs.length + " photos" : "Coming soon"}</div>
+      </div>
+      <div class="gc-viewport">
+        <div class="gc-track">
+          ${(imgs || [null]).map((im, i) => im
+            ? `<div class="gc-slide"><img src="${im.src}" alt="${(im.cap || div.title).replace(/"/g,"&quot;")} — SSSEDUTECH Solutions" loading="lazy" decoding="async">${im.cap ? `<div class="gc-cap">${im.cap}</div>` : ""}</div>`
+            : `<div class="gc-slide"><div class="gc-ph">${div.title} photos coming soon</div></div>`
+          ).join("")}
+        </div>
+        ${imgs && imgs.length > 1 ? `
+          <button class="gc-nav prev" aria-label="Previous ${div.title} image">&#10094;</button>
+          <button class="gc-nav next" aria-label="Next ${div.title} image">&#10095;</button>` : ""}
+      </div>
+      <div class="gc-dots"></div>`;
+    grid.appendChild(card);
+
+    const track = card.querySelector(".gc-track");
+    const dots  = card.querySelector(".gc-dots");
+    const n = imgs ? imgs.length : 1;
+    let idx = 0, timer = null;
+
+    if(n > 1){
+      for(let i = 0; i < n; i++){
+        const b = document.createElement("button");
+        b.setAttribute("aria-label", `${div.title} image ${i+1}`);
+        if(i === 0) b.classList.add("active");
+        b.addEventListener("click", () => { go(i); restart(); });
+        dots.appendChild(b);
+      }
+    }
+
+    function go(i){
+      idx = (i + n) % n;
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      dots.querySelectorAll("button").forEach((d, j) => d.classList.toggle("active", j === idx));
+    }
+    function restart(){ if(n < 2) return; clearInterval(timer); timer = setInterval(() => go(idx + 1), 4200); }
+
+    if(n > 1){
+      card.querySelector(".gc-nav.prev").addEventListener("click", () => { go(idx - 1); restart(); });
+      card.querySelector(".gc-nav.next").addEventListener("click", () => { go(idx + 1); restart(); });
+      card.addEventListener("mouseenter", () => clearInterval(timer));
+      card.addEventListener("mouseleave", restart);
+
+      // swipe support
+      let sx = 0, dx = 0, dragging = false;
+      const vp = card.querySelector(".gc-viewport");
+      vp.addEventListener("touchstart", e => { sx = e.touches[0].clientX; dx = 0; dragging = true; clearInterval(timer); }, {passive:true});
+      vp.addEventListener("touchmove",  e => { if(dragging) dx = e.touches[0].clientX - sx; }, {passive:true});
+      vp.addEventListener("touchend",   () => {
+        if(dragging && Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+        dragging = false; restart();
+      });
+
+      // pause when off-screen
+      new IntersectionObserver(entries => {
+        entries.forEach(e => e.isIntersecting ? restart() : clearInterval(timer));
+      }, {threshold:.2}).observe(card);
+    }
+  });
+
+  observeReveal();
+})();
