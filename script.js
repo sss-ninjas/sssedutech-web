@@ -286,8 +286,8 @@ const GALLERY = [
   { title: "Hackathon",     images: [] },
   { title: "Workshop",      
     images: [
-      {src: "./gallery/workshop1.jpeg", cap:" "},
-      {src: "./gallery/workshop2.jpeg", cap:" "}
+      {src: "./images/workshop1.jpeg", cap:" "},
+      {src: "./images/workshop2.jpeg", cap:" "}
     ] },
   { title: "Mentors",       images: [] },
   { title: "Labs",          images: [] },
