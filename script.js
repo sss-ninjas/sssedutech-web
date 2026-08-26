@@ -288,10 +288,7 @@ const GALLERY = [
     images: [
       {src: "./images/workshop1.jpeg", cap:" "},
       {src: "./images/workshop2.jpeg", cap:" "}
-    ] },
-  { title: "Mentors",       images: [] },
-  { title: "Labs",          images: [] },
-  { title: "Community",     images: [] }
+    ] }
 ];
 
 (function buildGallery(){
