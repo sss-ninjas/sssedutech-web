@@ -293,7 +293,11 @@ const GALLERY = [
       { src: "./images/s4.jpeg", cap: " " }
     ] },
   { title: "Graduation",    images: [] },
-  { title: "Hackathon",     images: [] },
+  { title: "Hackathon",
+   images: [
+     {src: "./images/Hackathon.jpeg", cap: " "},
+     {src: "./images/Hackathon1.jpeg", cap: " "}
+   ] },
   { title: "Workshop",      
     images: [
       {src: "./images/workshop1.jpeg", cap:" "},
