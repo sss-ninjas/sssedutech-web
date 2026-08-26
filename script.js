@@ -283,7 +283,7 @@ const GALLERY = [
      {src: "./images/classroom5.jpeg.jpeg", cap:" "},
      {src: "./images/classroom6.jpeg.jpeg", cap:" "},
      {src: "./images/classroom7.jpeg.jpeg", cap:" "},
-     {src: "./images/classroom8.jpeg.jpeg", cap:" "},
+     {src: "./images/classroom8.jpeg.jpeg", cap:" "}
    ] },
   { title: "Placement Day", 
     images: [
