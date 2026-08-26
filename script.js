@@ -274,7 +274,17 @@ observeReveal();
    Leave an array empty to show a placeholder slide.
 ================================================================ */
 const GALLERY = [
-  { title: "Classroom",images: [] },
+  { title: "Classroom",
+   images: [
+     {src: "./images/classroom1.jpeg.jpeg", cap:" "},
+     {src: "./images/classroom2.jpeg.jpeg", cap:" "},
+     {src: "./images/classroom3.jpeg.jpeg", cap:" "},
+     {src: "./images/classroom4.jpeg.jpeg", cap:" "},
+     {src: "./images/classroom5.jpeg.jpeg", cap:" "},
+     {src: "./images/classroom6.jpeg.jpeg", cap:" "},
+     {src: "./images/classroom7.jpeg.jpeg", cap:" "},
+     {src: "./images/classroom8.jpeg.jpeg", cap:" "},
+   ] },
   { title: "Placement Day", 
     images: [
       { src: "./images/s1.jpeg", cap: " " },
