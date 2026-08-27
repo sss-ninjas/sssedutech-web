@@ -379,3 +379,86 @@ const GALLERY = [
 
   observeReveal();
 })();
+/* ================= Full-screen image viewer (lightbox) =================
+   Click any gallery photo to view it full screen. Navigate with the
+   on-screen arrows or the Left/Right keys; close with Esc or the X.
+========================================================================= */
+(function lightbox(){
+  const grid = document.getElementById("galGrid");
+  if(!grid) return;
+
+  // Build overlay once
+  const lb = document.createElement("div");
+  lb.className = "lb-backdrop";
+  lb.setAttribute("role", "dialog");
+  lb.setAttribute("aria-modal", "true");
+  lb.hidden = true;
+  lb.innerHTML = `
+    <div class="lb-top">
+      <span class="lb-counter"></span>
+      <button class="lb-close" aria-label="Close viewer">&times;</button>
+    </div>
+    <button class="lb-nav lb-prev" aria-label="Previous image">&#10094;</button>
+    <figure class="lb-figure">
+      <img class="lb-img" alt="">
+      <figcaption class="lb-cap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" aria-label="Next image">&#10095;</button>`;
+  document.body.appendChild(lb);
+
+  const imgEl = lb.querySelector(".lb-img");
+  const capEl = lb.querySelector(".lb-cap");
+  const cntEl = lb.querySelector(".lb-counter");
+  let images = [], idx = 0;
+
+  function render(){
+    const im = images[idx];
+    if(!im) return;
+    imgEl.src = im.src;
+    imgEl.alt = (im.cap || "Gallery photo") + " — SSSEDUTECH Solutions";
+    capEl.textContent = im.cap || "";
+    cntEl.textContent = (idx + 1) + " / " + images.length;
+    // restart zoom animation
+    imgEl.classList.remove("lb-anim");
+    void imgEl.offsetWidth;
+    imgEl.classList.add("lb-anim");
+  }
+  function open(folderIdx, start){
+    const f = GALLERY[folderIdx];
+    if(!f || !f.images || !f.images.length) return;
+    images = f.images;
+    idx = start || 0;
+    render();
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+  function close(){
+    lb.hidden = true;
+    document.body.style.overflow = "";
+  }
+  function go(d){ idx = (idx + d + images.length) % images.length; render(); }
+
+
+ // Click a photo inside any folder card -> open that folder's viewer
+  grid.addEventListener("click", e => {
+    const slide = e.target.closest(".gc-slide");
+    if(!slide) return;
+    const card = slide.closest(".gal-card");
+    const folderIdx = Array.from(grid.children).indexOf(card);
+    const slides = Array.from(card.querySelectorAll(".gc-slide"));
+    const start = Math.max(0, slides.indexOf(slide));
+    open(folderIdx, start);
+  });
+
+  lb.querySelector(".lb-close").addEventListener("click", close);
+  lb.querySelector(".lb-prev").addEventListener("click", e => { e.stopPropagation(); go(-1); });
+  lb.querySelector(".lb-next").addEventListener("click", e => { e.stopPropagation(); go(1); });
+  lb.addEventListener("click", e => { if(e.target === lb) close(); });
+
+  document.addEventListener("keydown", e => {
+    if(lb.hidden) return;
+    if(e.key === "Escape") close();
+    if(e.key === "ArrowLeft") go(-1);
+    if(e.key === "ArrowRight") go(1);
+  });
+})();
