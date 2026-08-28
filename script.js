@@ -292,7 +292,17 @@ const GALLERY = [
       { src: "./images/s3.jpeg", cap: " " },
       { src: "./images/s4.jpeg", cap: " " }
     ] },
-  { title: "Graduation",    images: [] },
+  { title: "placed",    
+   images: [
+     {src: "./images/placed1.jpeg", cap:" "},
+     {src: "./images/placed2.jpeg", cap:" "},
+     {src: "./images/placed3.jpeg", cap:" "},
+     {src: "./images/placed4.jpeg", cap:" "},
+     {src: "./images/placed5.jpeg", cap:" "},
+     {src: "./images/placed6.jpeg", cap:" "},
+     {src: "./images/placed7.jpeg", cap:" "},
+     {src: "./images/placed8.jpeg", cap:" "}
+   ] },
   { title: "Hackathon",
    images: [
      {src: "./images/Hackathon.jpeg", cap: " "},
