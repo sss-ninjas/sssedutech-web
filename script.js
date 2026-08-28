@@ -292,7 +292,7 @@ const GALLERY = [
       { src: "./images/s3.jpeg", cap: " " },
       { src: "./images/s4.jpeg", cap: " " }
     ] },
-  { title: "placed",    
+  { title: "placements",    
    images: [
      {src: "./images/placed1.jpeg", cap:" "},
      {src: "./images/placed2.jpeg", cap:" "},
