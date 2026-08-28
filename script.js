@@ -301,7 +301,12 @@ const GALLERY = [
      {src: "./images/placed5.jpeg", cap:" "},
      {src: "./images/placed6.jpeg", cap:" "},
      {src: "./images/placed7.jpeg", cap:" "},
-     {src: "./images/placed8.jpeg", cap:" "}
+     {src: "./images/placed8.jpeg", cap:" "},
+     {src: "./images/placed9.jpeg", cap:" "},
+     {src: "./images/placed10.jpeg", cap:" "},
+     {src: "./images/placed11.jpeg", cap:" "},
+     {src: "./images/placed12.jpeg", cap:" "},
+     {src: "./images/placed13.jpeg", cap:" "}
    ] },
   { title: "Hackathon",
    images: [
