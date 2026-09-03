@@ -324,7 +324,12 @@ const GALLERY = [
     images: [
       {src: "./images/workshop1.jpeg", cap:" "},
       {src: "./images/workshop2.jpeg", cap:" "}
-    ] }
+    ] },
+  { title: "Celebration",
+    images: [
+     {src: "./images/Hackathon.jpeg", cap: " "},
+     {src: "./images/Hackathon1.jpeg", cap: " "}
+   ] },
 ];
 
 (function buildGallery(){
