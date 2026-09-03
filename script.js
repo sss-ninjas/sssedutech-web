@@ -323,7 +323,13 @@ const GALLERY = [
   { title: "Workshop",      
     images: [
       {src: "./images/workshop1.jpeg", cap:" "},
-      {src: "./images/workshop2.jpeg", cap:" "}
+      {src: "./images/workshop2.jpeg", cap:" "},
+      {src: "./images/workshop3.jpeg", cap:" "},
+      {src: "./images/workshop4.jpeg", cap:" "}
+      {src: "./images/workshop5.jpeg", cap:" "},
+      {src: "./images/workshop6.jpeg", cap:" "}
+      {src: "./images/workshop7.jpeg", cap:" "},
+      {src: "./images/workshop8.jpeg", cap:" "}
     ] },
   { title: "Celebration",
     images: [
