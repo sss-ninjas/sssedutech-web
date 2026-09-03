@@ -292,7 +292,7 @@ const GALLERY = [
       { src: "./images/s3.jpeg", cap: " " },
       { src: "./images/s4.jpeg", cap: " " }
     ] },
-  { title: "placements",    
+  { title: "Placements",    
    images: [
      {src: "./images/placed1.jpeg", cap:" "},
      {src: "./images/placed2.jpeg", cap:" "},
@@ -342,7 +342,7 @@ const GALLERY = [
       {src: "./images/workshop1.jpeg", cap:" "},
       {src: "./images/workshop2.jpeg", cap:" "},
       {src: "./images/workshop3.jpeg", cap:" "},
-      {src: "./images/workshop4.jpeg", cap:" "}
+      {src: "./images/workshop4.jpeg", cap:" "},
       {src: "./images/workshop5.jpeg", cap:" "},
       {src: "./images/workshop6.jpeg", cap:" "}
       {src: "./images/workshop7.jpeg", cap:" "},
