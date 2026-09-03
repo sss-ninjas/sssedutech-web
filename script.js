@@ -327,8 +327,13 @@ const GALLERY = [
     ] },
   { title: "Celebration",
     images: [
-     {src: "./images/Hackathon.jpeg", cap: " "},
-     {src: "./images/Hackathon1.jpeg", cap: " "}
+     {src: "./images/celebration1.jpeg", cap: " "},
+     {src: "./images/celebration2.jpeg", cap: " "},
+     {src: "./images/celebration3.jpeg", cap: " "},
+     {src: "./images/celebration4.jpeg", cap: " "},
+     {src: "./images/celebration5.jpeg", cap: " "},
+     {src: "./images/celebration6.jpeg", cap: " "},
+     {src: "./images/celebration7.jpeg", cap: " "}
    ] },
 ];
 
