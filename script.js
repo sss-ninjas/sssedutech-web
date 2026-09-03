@@ -344,7 +344,7 @@ const GALLERY = [
       {src: "./images/workshop3.jpeg", cap:" "},
       {src: "./images/workshop4.jpeg", cap:" "},
       {src: "./images/workshop5.jpeg", cap:" "},
-      {src: "./images/workshop6.jpeg", cap:" "}
+      {src: "./images/workshop6.jpeg", cap:" "},
       {src: "./images/workshop7.jpeg", cap:" "},
       {src: "./images/workshop8.jpeg", cap:" "}
     ] },
