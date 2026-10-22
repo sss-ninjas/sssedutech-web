@@ -43,6 +43,7 @@
         <li><a href="#franchise">Franchise</a></li>
         <li><a href="#courses">Courses</a></li>
         <li><a href="#placements">Placements</a></li>
+        <li><a href="#careers">Careers</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -83,20 +84,104 @@
         <div><strong data-count="50">0</strong><span>Hiring Partners</span></div>
       </div>
     </div>
-    <div class="hero-art reveal">
-      <div class="orbit">
-        <div class="core">
-          <div class="core-inner">SSS<span>EDU</span></div>
+    <div class="hero-careers reveal" id="careers">
+      <div class="career-panel-head">
+        <span class="career-eyebrow"><span class="dot"></span>200%PLACEMENT OPPORTUNITIES</span>
+        <h2 id="careerTitle">Who can Apply?</h2>
+        <h id="careerSubtitle">Freshers<br></h>
+        <h id="careerSubtitle">working professionals<br></h>
+        <h id="careerSubtitle">Restart with confidence<br></h>
+        <h id="careerSubtitle">Looking to start carrer in IT<br></h>
+        <h id="careerSubtitle">Carrer gap candidates<br></h>
+      </div>
+
+      <!-- Step 1: sector chooser -->
+      <div class="career-sectors" id="careerSectors">
+        <button type="button" class="career-sector" data-sector="it">
+          <span class="career-icon">⌘</span>
+          <span class="career-info"><h3>IT JOBS</h3><p>Training &amp; Placement</p></span>
+          <span class="career-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="career-sector" data-sector="nonit">
+          <span class="career-icon">⚕</span>
+          <span class="career-info"><h3>NON_IT JOBS</h3><p>Training &amp; Placement</p></span>
+          <span class="career-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <!-- Step 2a: IT JOBS -->
+      <div class="career-sector-panel" id="sector-it" data-title="IT JOBS" data-subtitle="Build Your Career in IT Training." hidden>
+        <div class="career-openings">
+          <article class="career-opening">
+            <div class="career-icon">⌘</div>
+            <div class="career-info">
+              <h3>Java Full Stack Trainer</h3>
+              <p>Training &amp; Placement <span>•</span> Full-time</p>
+            </div>
+            <button class="career-apply" type="button" data-apply-role="Java Full Stack Trainer">Apply <span aria-hidden="true">↗</span></button>
+          </article>
+          <article class="career-opening">
+            <div class="career-icon">❄</div>
+            <div class="career-info">
+              <h3>Snowflake Data Engineer</h3>
+              <p>Training &amp; Placement <span>•</span> Full-time</p>
+            </div>
+            <button class="career-apply" type="button" data-apply-role="Snowflake Data Engineer">Apply <span aria-hidden="true">↗</span></button>
+          </article>
+          <article class="career-opening">
+            <div class="career-icon">🐍</div>
+            <div class="career-info">
+              <h3>Python Full Stack Developer</h3>
+              <p>Training &amp; Placement <span>•</span> Full-time</p>
+            </div>
+            <button class="career-apply" type="button" data-apply-role="Python Full Stack Developer">Apply <span aria-hidden="true">↗</span></button>
+          </article>
+          <article class="career-opening">
+            <div class="career-icon">⚙</div>
+            <div class="career-info">
+              <h3>DevOps Engineer</h3>
+              <p>Training &amp; Placement <span>•</span> Full-time</p>
+            </div>
+            <button class="career-apply" type="button" data-apply-role="DevOps Engineer">Apply <span aria-hidden="true">↗</span></button>
+          </article>
+          <article class="career-opening">
+            <div class="career-icon">☁</div>
+            <div class="career-info">
+              <h3>Azure Data Engineer Trainer</h3>
+              <p>Training &amp; Placement <span>•</span> Full-time</p>
+            </div>
+            <button class="career-apply" type="button" data-apply-role="Azure Data Engineer Trainer">Apply <span aria-hidden="true">↗</span></button>
+          </article>
         </div>
-        <div class="ring ring-1"></div>
-        <div class="ring ring-2"></div>
-        <div class="ring ring-3"></div>
-        <span class="tag t1">Python</span>
-        <span class="tag t2">AWS</span>
-        <span class="tag t3">UI/UX</span>
-        <span class="tag t4">VLSI</span>
-        <span class="tag t5">Data</span>
-        <span class="tag t6">CAD</span>
+      </div>
+            
+
+      <!-- Step 2b: NON_IT JOBS -->
+      <div class="career-sector-panel" id="sector-nonit" data-title="NON_IT JOBS" data-subtitle="Build Your Career in Medical Billing." hidden>
+        <div class="career-openings">
+          <article class="career-opening">
+            <div class="career-icon">⚕</div>
+            <div class="career-info">
+              <h3>Medical Coding And Billing</h3>
+              <p>Training &amp; Placement <span>•</span> Full-time</p>
+            </div>
+            <button class="career-apply" type="button" data-apply-role="Medical Coding And Billing">Apply <span aria-hidden="true">↗</span></button>
+          </article>
+          <article class="career-opening">
+            <div class="career-icon">◎</div>
+            <div class="career-info">
+              <h3>Student Counsellor</h3>
+              <p>Training &amp; Placement <span>•</span> Full-time</p>
+            </div>
+            <button class="career-apply" type="button" data-apply-role="Student Counsellor">Apply <span aria-hidden="true">↗</span></button>
+          </article>
+        </div>
+      </div>
+
+      <div class="career-panel-footer">
+        <button type="button" class="career-back" id="careerBack" hidden><span aria-hidden="true">←</span>BACK</button>
+        <span>Don't see your role? Send us your profile.</span>
+        <button type="button" class="career-send-cv" data-apply-role="General Application">Send Your CV <span aria-hidden="true">→</span></button>
       </div>
     </div>
   </div>
@@ -419,6 +504,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#courses">Courses</a></li>
         <li><a href="#placements">Placements</a></li>
+        <li><a href="#careers">Careers</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -455,6 +541,39 @@
 <div id="cursor-dot" aria-hidden="true"></div>
 
 <script src="script.js" defer></script>
+
+<!-- CAREERS APPLICATION FORM -->
+<div class="application-modal" id="applicationModal" hidden>
+  <div class="application-backdrop" data-close-application></div>
+  <section class="application-dialog" role="dialog" aria-modal="true" aria-labelledby="applicationTitle">
+    <button class="application-close" type="button" aria-label="Close application form" data-close-application>&times;</button>
+    <span class="career-eyebrow"><span class="dot"></span> CAREERS AT SSSEDUTECH</span>
+    <h2 id="applicationTitle">Job <span class="grad">Application</span></h2>
+    <p class="application-intro">Fill in your details and attach your resume as a PDF. Your application will be sent to our recruitment email.</p>
+    
+    
+    <form id="jobApplicationForm" enctype="multipart/form-data" novalidate action = "https://formsubmit.co/sssedutectsolutions@gmail.com" method = "POST">
+      <div class="application-fields">
+        <label>Full name *<input type="text" name="full_name" autocomplete="name" maxlength="120" required></label>
+        <label>Email address *<input type="email" name="email" autocomplete="email" maxlength="254" required></label>
+        <label>Mobile number *<input type="tel" name="phone" autocomplete="tel" minlength="10" maxlength="20" pattern="[+0-9() -]{10,20}" required></label>
+        <label>Job role *<select name="job_role" id="applicationRole" required>
+          <option value="">Choose a role</option>
+          <option>Python Trainer</option><option>Data Science Trainer</option><option>Medical Billing</option><option>Student Counsellor</option><option>General Application</option>
+        </select></label>
+        <label>Highest qualification *<input type="text" name="qualification" maxlength="120" required placeholder="e.g. B.E., B.Com, M.Sc."></label>
+        <label>Years of experience *<select name="experience" required><option value="">Select experience</option><option>Fresher</option><option>Less than 1 year</option><option>1–2 years</option><option>3–5 years</option><option>6+ years</option></select></label>
+        <label class="application-full">Resume (PDF only, max 5 MB) *<input type="file" name="resume" accept="application/pdf,.pdf" required><small>Upload a readable PDF file up to 5 MB.</small></label>
+        <label class="application-full">Cover letter / message<textarea name="message" rows="4" maxlength="3000" placeholder="Tell us briefly why you are a good fit (optional)"></textarea></label>
+        <label class="application-honeypot" aria-hidden="true">Leave this field empty<input name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <p class="application-privacy">By submitting, you agree that SSSEDUTECH SOLUTIONS may use these details to review your job application.</p>
+      <div id="applicationStatus" class="application-status" role="status" aria-live="polite"></div>
+      <button class="btn btn-primary application-submit" type="submit"><span>Submit Application</span><span aria-hidden="true">→</span></button>
+    </form>
+  </section>
+</div>
+
 </body>
 </html>
 
