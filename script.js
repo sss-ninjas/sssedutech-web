@@ -535,3 +535,111 @@ const GALLERY = [
     if(e.key === "ArrowRight") go(1);
   });
 })();
+
+
+// --- Careers application form ---
+(() => {
+  const modal = document.getElementById('applicationModal');
+  const form = document.getElementById('jobApplicationForm');
+  if (!modal || !form) return;
+  const roleSelect = document.getElementById('applicationRole');
+  const status = document.getElementById('applicationStatus');
+  const submitButton = form.querySelector('button[type="submit"]');
+  let lastFocus = null;
+
+  function openApplication(role) {
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add('application-open');
+    if (role && roleSelect) roleSelect.value = role;
+    status.textContent = '';
+    status.className = 'application-status';
+    window.setTimeout(() => form.querySelector('input[name="full_name"]')?.focus(), 50);
+  }
+  function closeApplication() {
+    modal.hidden = true;
+    document.body.classList.remove('application-open');
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+  }
+  document.querySelectorAll('[data-apply-role]').forEach(button => {
+    button.addEventListener('click', () => openApplication(button.dataset.applyRole || ''));
+  });
+  modal.querySelectorAll('[data-close-application]').forEach(button => button.addEventListener('click', closeApplication));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !modal.hidden) closeApplication();
+  });
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    status.textContent = '';
+    status.className = 'application-status';
+    if (!form.reportValidity()) return;
+    const resume = form.querySelector('input[name="resume"]').files[0];
+    if (!resume) {
+      status.textContent = 'Please attach your resume as a PDF.';
+      status.classList.add('error');
+      return;
+    }
+    if (resume.size > 5 * 1024 * 1024) {
+      status.textContent = 'Your resume is larger than 5 MB. Please choose a smaller PDF.';
+      status.classList.add('error');
+      return;
+    }
+    if (!resume.name.toLowerCase().endsWith('.pdf') || (resume.type && resume.type !== 'application/pdf')) {
+      status.textContent = 'Please upload your resume in PDF format only.';
+      status.classList.add('error');
+      return;
+    }
+    submitButton.disabled = true;
+    const original = submitButton.innerHTML;
+    submitButton.textContent = 'Sending application…';
+    try {
+      const response = await fetch('/api/apply', { method: 'POST', body: new FormData(form) });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || 'We could not submit your application. Please try again.');
+      status.textContent = result.message || 'Thank you! Your application has been sent successfully.';
+      status.classList.add('success');
+      form.reset();
+      if (roleSelect) roleSelect.value = '';
+    } catch (error) {
+      status.textContent = error.message || 'Unable to send your application. Please try again later.';
+      status.classList.add('error');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = original;
+    }
+  });
+})();
+
+
+// --- Placement opportunities: IT / NON_IT sector switcher ---
+(function () {
+  const sectors = document.getElementById('careerSectors');
+  const title = document.getElementById('careerTitle');
+  const subtitle = document.getElementById('careerSubtitle');
+  const back = document.getElementById('careerBack');
+  if (!sectors || !title || !subtitle || !back) return;
+  const panels = document.querySelectorAll('.career-sector-panel');
+  const defaultTitle = title.innerHTML;
+  const defaultSubtitle = subtitle.textContent;
+
+  function showSector(key) {
+    const panel = document.getElementById('sector-' + key);
+    if (!panel) return;
+    sectors.hidden = true;
+    panels.forEach(p => { p.hidden = p !== panel; });
+    title.innerHTML = panel.dataset.title + ' <span class="grad">With Us</span>';
+    subtitle.textContent = panel.dataset.subtitle;
+    back.hidden = false;
+  }
+  function showSectors() {
+    panels.forEach(p => { p.hidden = true; });
+    sectors.hidden = false;
+    title.innerHTML = defaultTitle;
+    subtitle.textContent = defaultSubtitle;
+    back.hidden = true;
+  }
+  sectors.querySelectorAll('[data-sector]').forEach(btn =>
+    btn.addEventListener('click', () => showSector(btn.dataset.sector)));
+  back.addEventListener('click', showSectors);
+})();
