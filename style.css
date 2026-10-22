@@ -422,3 +422,105 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 }
 
 
+
+
+/* Split hero: existing academy message + careers */
+.hero-inner{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:42px}
+.hero-copy,.hero-careers{min-width:0}
+.hero-careers{
+  position:relative;
+  padding:clamp(24px,3vw,38px);
+  border:1px solid rgba(245,179,1,.24);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(145deg,rgba(25,25,25,.96),rgba(8,8,8,.94));
+  box-shadow:0 24px 80px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.04);
+  overflow:hidden;
+}
+.hero-careers::before{
+  content:"";position:absolute;width:240px;height:240px;right:-100px;top:-120px;
+  border-radius:50%;background:rgba(245,179,1,.13);filter:blur(40px);pointer-events:none;
+}
+.career-panel-head,.career-openings,.career-panel-footer,.career-note{position:relative}
+.career-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:1.6px;font-weight:800;color:var(--gold);margin-bottom:14px}
+.career-eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px rgba(245,179,1,.8)}
+.career-panel-head h2{font-family:'Poppins';font-size:clamp(26px,3vw,39px);line-height:1.15;letter-spacing:-.03em;margin-bottom:12px}
+.career-panel-head>p{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:24px;max-width:490px}
+.career-openings{display:grid;gap:11px}
+.career-opening{display:flex;align-items:center;gap:13px;padding:15px 13px;border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:14px;transition:border-color .25s,transform .25s,background .25s}
+.career-opening:hover{border-color:rgba(245,179,1,.42);background:rgba(245,179,1,.055);transform:translateY(-2px)}
+.career-icon{flex:0 0 42px;width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:var(--grad-soft);color:var(--gold);font-size:23px;font-weight:800}
+.career-info{flex:1;min-width:0}
+.career-info h3{font-size:14px;line-height:1.35;font-weight:800;margin-bottom:4px}
+.career-info p{font-size:11px;color:var(--muted2);line-height:1.5}
+.career-info p span{color:var(--gold);padding:0 3px}
+.career-apply{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;color:var(--gold);font-size:12px;font-weight:800;padding:8px 10px;border-radius:9px;background:rgba(245,179,1,.08);transition:background .2s}
+.career-apply:hover{background:rgba(245,179,1,.17)}
+.career-panel-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:19px;padding-top:17px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}
+.career-panel-footer a{color:var(--gold);font-weight:800;white-space:nowrap}
+.career-panel-footer a span{font-size:16px;margin-left:4px}
+.career-note{margin-top:14px;color:var(--muted2);font-size:10px;line-height:1.5}
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;text-align:left;gap:30px}
+  .hero-copy .chip{margin-inline:0}
+  .hero-desc{margin-inline:0}
+  .hero-cta,.hero-stats{justify-content:flex-start}
+  .hero-careers{max-width:760px;width:100%;margin:0 auto}
+}
+@media(max-width:640px){
+  .hero{padding-top:115px}
+  .hero-careers{padding:22px 16px}
+  .career-panel-head h2{font-size:29px}
+  .career-opening{gap:10px;padding:12px 10px}
+  .career-icon{flex-basis:36px;width:36px;height:36px}
+  .career-info h3{font-size:12px}
+  .career-info p{font-size:10px}
+  .career-apply{font-size:11px;padding:7px}
+  .career-panel-footer{align-items:flex-start;flex-direction:column}
+}
+
+
+/* ===== Careers application form ===== */
+.career-apply,.career-send-cv{font:inherit;cursor:pointer}
+.career-send-cv{border:0;background:none;color:var(--gold);font-weight:800;display:inline-flex;align-items:center;gap:8px}
+.career-send-cv:hover{color:#fff}
+.application-modal[hidden]{display:none}
+.application-modal{position:fixed;inset:0;z-index:10050;display:flex;align-items:center;justify-content:center;padding:22px}
+.application-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(9px)}
+.application-dialog{position:relative;width:min(760px,100%);max-height:min(90vh,900px);overflow-y:auto;padding:clamp(24px,4vw,42px);border:1px solid rgba(245,179,1,.3);border-radius:24px;background:linear-gradient(145deg,#171717,#080808);box-shadow:0 30px 100px rgba(0,0,0,.65)}
+.application-close{position:absolute;top:14px;right:16px;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;font-size:28px;color:#fff;background:rgba(255,255,255,.04)}
+.application-close:hover{background:rgba(255,255,255,.12)}
+.application-dialog h2{font:800 clamp(28px,4vw,40px)/1.15 'Poppins',sans-serif;margin:5px 44px 10px 0}
+.application-intro{color:var(--muted);font-size:14px;margin-bottom:24px;max-width:620px}
+.application-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.application-fields label{display:flex;flex-direction:column;gap:7px;color:#eee;font-size:13px;font-weight:700;min-width:0}
+.application-fields input,.application-fields select,.application-fields textarea{width:100%;min-width:0;border:1px solid rgba(255,255,255,.15);border-radius:10px;background:#0d0d0d;color:#fff;padding:12px 13px;font:500 14px 'Manrope',sans-serif;outline:none}
+.application-fields input:focus,.application-fields select:focus,.application-fields textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,179,1,.12)}
+.application-fields input[type=file]{padding:10px;font-size:12px}
+.application-fields input[type=file]::file-selector-button{border:0;border-radius:7px;padding:8px 10px;margin-right:10px;background:var(--grad);font-weight:800;cursor:pointer}
+.application-fields textarea{resize:vertical}
+.application-fields small{font-size:11px;color:var(--muted2);font-weight:400}
+.application-full{grid-column:1/-1}
+.application-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.application-privacy{font-size:11px;color:var(--muted2);margin:16px 0}
+.application-status{font-size:13px;margin:10px 0}
+.application-status.success{color:#8de6a5}
+.application-status.error{color:#ff9c9c}
+.application-submit{width:100%;justify-content:center;margin-top:4px}
+.application-submit:disabled{opacity:.6;cursor:wait}
+body.application-open{overflow:hidden}
+@media(max-width:600px){.application-modal{padding:10px}.application-dialog{padding:24px 17px;max-height:94vh;border-radius:18px}.application-fields{grid-template-columns:1fr;gap:13px}.application-full{grid-column:auto}.application-close{top:10px;right:10px}.application-dialog h2{font-size:29px}}
+
+
+/* Placement opportunities: sector chooser */
+.career-eyebrow{font-weight:1100;font-size:50px;letter-spacing:2px}
+.career-sectors{display:grid;gap:12px}
+.career-sector{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;padding:18px 16px;border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:14px;transition:border-color .25s,transform .25s,background .25s}
+.career-sector:hover,.career-sector:focus-visible{border-color:rgba(245,179,1,.55);background:rgba(245,179,1,.07);transform:translateY(-2px);outline:none}
+.career-sector .career-info h3{font-size:17px;font-weight:900;letter-spacing:.3px}
+.career-sector .career-info p{font-size:12px}
+.career-arrow{color:var(--gold);font-size:22px;font-weight:800}
+.career-sector-panel:not([hidden]){animation:careerFade .3s ease}
+@keyframes careerFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.career-back{border:0;background:none;font:inherit;cursor:pointer;color:var(--gold);font-weight:800;font-size:12px;white-space:nowrap}
+.career-back:hover{color:#fff}
+.career-back[hidden],.career-sector-panel[hidden],.career-sectors[hidden]{display:none}
