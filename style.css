@@ -512,7 +512,7 @@ body.application-open{overflow:hidden}
 
 
 /* Placement opportunities: sector chooser */
-.career-eyebrow{font-weight:1100;font-size:50px;letter-spacing:2px}
+.career-eyebrow{font-weight:100;font-size:20px;letter-spacing:2px}
 .career-sectors{display:grid;gap:12px}
 .career-sector{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;padding:18px 16px;border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:14px;transition:border-color .25s,transform .25s,background .25s}
 .career-sector:hover,.career-sector:focus-visible{border-color:rgba(245,179,1,.55);background:rgba(245,179,1,.07);transform:translateY(-2px);outline:none}
