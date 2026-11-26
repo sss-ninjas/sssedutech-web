@@ -532,48 +532,145 @@
 </footer>
 
 <!-- FLOATING BUTTONS -->
-<a href="https://wa.me/9916973287" class="fab wa" aria-label="WhatsApp" target="_blank" rel="noopener">✆</a>
-<a href="tel:9916973287" class="fab call" aria-label="Call">📞</a>
+<a href="https://wa.me/919071021021" class="fab wa" aria-label="WhatsApp" target="_blank" rel="noopener">✆</a>
+<a href="tel:9071021021" class="fab call" aria-label="Call">📞</a>
 <button id="toTop" class="fab top" aria-label="Back to top">↑</button>
 
 <!-- CURSOR -->
 <div id="cursor" aria-hidden="true"></div>
 <div id="cursor-dot" aria-hidden="true"></div>
 
-<script src="script.js" defer></script>
 
-<!-- CAREERS APPLICATION FORM -->
-<div class="application-modal" id="applicationModal" hidden>
-  <div class="application-backdrop" data-close-application></div>
-  <section class="application-dialog" role="dialog" aria-modal="true" aria-labelledby="applicationTitle">
-    <button class="application-close" type="button" aria-label="Close application form" data-close-application>&times;</button>
-    <span class="career-eyebrow"><span class="dot"></span> CAREERS AT SSSEDUTECH</span>
-    <h2 id="applicationTitle">Job <span class="grad">Application</span></h2>
-    <p class="application-intro">Fill in your details and attach your resume as a PDF. Your application will be sent to our recruitment email.</p>
-    
-    
-    <form id="jobApplicationForm" enctype="multipart/form-data" novalidate action = "https://formsubmit.co/sssedutectsolutions@gmail.com" method = "POST">
-      <div class="application-fields">
-        <label>Full name *<input type="text" name="full_name" autocomplete="name" maxlength="120" required></label>
-        <label>Email address *<input type="email" name="email" autocomplete="email" maxlength="254" required></label>
-        <label>Mobile number *<input type="tel" name="phone" autocomplete="tel" minlength="10" maxlength="20" pattern="[+0-9() -]{10,20}" required></label>
-        <label>Job role *<select name="job_role" id="applicationRole" required>
-          <option value="">Choose a role</option>
-          <option>Python Trainer</option><option>Data Science Trainer</option><option>Medical Billing</option><option>Student Counsellor</option><option>General Application</option>
-        </select></label>
-        <label>Highest qualification *<input type="text" name="qualification" maxlength="120" required placeholder="e.g. B.E., B.Com, M.Sc."></label>
-        <label>Years of experience *<select name="experience" required><option value="">Select experience</option><option>Fresher</option><option>Less than 1 year</option><option>1–2 years</option><option>3–5 years</option><option>6+ years</option></select></label>
-        <label class="application-full">Resume (PDF only, max 5 MB) *<input type="file" name="resume" accept="application/pdf,.pdf" required><small>Upload a readable PDF file up to 5 MB.</small></label>
-        <label class="application-full">Cover letter / message<textarea name="message" rows="4" maxlength="3000" placeholder="Tell us briefly why you are a good fit (optional)"></textarea></label>
-        <label class="application-honeypot" aria-hidden="true">Leave this field empty<input name="website" tabindex="-1" autocomplete="off"></label>
-      </div>
-      <p class="application-privacy">By submitting, you agree that SSSEDUTECH SOLUTIONS may use these details to review your job application.</p>
-      <div id="applicationStatus" class="application-status" role="status" aria-live="polite"></div>
-      <button class="btn btn-primary application-submit" type="submit"><span>Submit Application</span><span aria-hidden="true">→</span></button>
-    </form>
-  </section>
+<!-- COURSE PAGE (roadmap + buy options) -->
+<div id="courseView" class="course-view" role="dialog" aria-modal="true" aria-label="Course details" hidden></div>
+
+<!-- CART DRAWER -->
+<div id="cartDrawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Your cart" hidden>
+  <div class="cart-backdrop" data-close-cart></div>
+  <aside class="cart-panel">
+    <div class="cart-head"><h2>Your cart</h2><button data-close-cart aria-label="Close cart">✕</button></div>
+    <div id="cartBody" class="cart-body"></div>
+    <div id="cartFoot" class="cart-foot" hidden>
+      <div class="cart-line"><span>Course fees</span><span id="cartSub"></span></div>
+      <div class="cart-line"><span id="cartGstLabel">GST</span><span id="cartGst"></span></div>
+      <div class="cart-total"><span>Total</span><strong id="cartTotal"></strong></div>
+      <button class="btn btn-primary cart-checkout" data-checkout>Proceed to checkout</button>
+    </div>
+  </aside>
 </div>
 
+<!-- STUDENT LOGIN / REGISTER -->
+<div id="authModal" class="checkout" role="dialog" aria-modal="true" aria-label="Student login" hidden>
+  <div class="checkout-backdrop" data-close-auth></div>
+  <div class="checkout-box">
+    <button class="checkout-x" data-close-auth aria-label="Close">✕</button>
+    <h2 id="authTitle">Student login</h2>
+    <p id="authNote" class="co-note"></p>
+    <div class="auth-tabs" role="tablist">
+      <button type="button" role="tab" id="tabLogin" data-auth-tab="login" class="active">Login</button>
+      <button type="button" role="tab" id="tabRegister" data-auth-tab="register">Create account</button>
+    </div>
+    <form id="loginForm" novalidate>
+      <label>Email<input id="lgEmail" type="email" autocomplete="email" required></label>
+      <label>Password<input id="lgPass" type="password" autocomplete="current-password" required></label>
+      <p class="co-error" id="lgError" role="alert"></p>
+      <button type="submit" class="btn btn-primary co-pay" id="lgBtn">Login</button>
+      <button type="button" class="link-btn" data-auth-tab="register">New student? Create an account</button>
+      <button type="button" class="link-btn" id="forgotBtn" hidden>Forgot password?</button>
+    </form>
+    <form id="registerForm" novalidate hidden>
+      <label>Full name<input id="rsName" type="text" autocomplete="name" required></label>
+      <label>Mobile number<input id="rsPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number" required></label>
+      <label>Email address<input id="rsEmail" type="email" autocomplete="email" required></label>
+      <label>Password<input id="rsPass" type="password" autocomplete="new-password" placeholder="At least 8 characters" required></label>
+      <label>Confirm password<input id="rsPass2" type="password" autocomplete="new-password" required></label>
+      <p class="co-error" id="rsError" role="alert"></p>
+      <button type="submit" class="btn btn-primary co-pay" id="rsBtn">Create account &amp; continue</button>
+      <button type="button" class="link-btn" data-auth-tab="login">Already registered? Log in</button>
+    </form>
+    <p class="co-note" id="authMode"></p>
+  </div>
+</div>
+
+<!-- MY ACCOUNT -->
+<div id="accountModal" class="checkout" role="dialog" aria-modal="true" aria-label="My account" hidden>
+  <div class="checkout-backdrop" data-close-account></div>
+  <div class="checkout-box checkout-wide">
+    <button class="checkout-x" data-close-account aria-label="Close">✕</button>
+    <h2>My account</h2>
+    <div id="acctInfo" class="acct-info"></div>
+    <h3 class="co-h">My orders &amp; invoices</h3>
+    <div id="acctOrders" class="acct-orders"></div>
+    <button type="button" class="btn btn-ghost co-pay" id="logoutBtn">Log out</button>
+  </div>
+</div>
+
+<!-- CHECKOUT: registration form + payment method -->
+<div id="checkoutModal" class="checkout" role="dialog" aria-modal="true" aria-label="Checkout" hidden>
+  <div class="checkout-backdrop" data-close-checkout></div>
+  <div class="checkout-box checkout-wide">
+    <button class="checkout-x" data-close-checkout aria-label="Close checkout">✕</button>
+    <form id="coForm" novalidate>
+      <h2>Checkout</h2>
+      <p class="co-note" id="coUser"></p>
+      <ul id="coItems" class="co-items"></ul>
+      <div class="co-total"><span id="coTotalLabel">Pay now</span><strong id="coTotal"></strong></div>
+
+      <h3 class="co-h">Student registration form</h3>
+      <div class="co-grid">
+        <label>Full name<input id="rgName" type="text" autocomplete="name" required></label>
+        <label>Email<input id="rgEmail" type="email" readonly></label>
+        <label>Mobile number<input id="rgPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number" required></label>
+        <label>Date of birth<input id="rgDob" type="date" required></label>
+        <label>Gender
+          <select id="rgGender" required><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select></label>
+        <label>Highest qualification
+          <select id="rgQual" required><option value="">Select</option><option>10th / SSLC</option><option>12th / PUC</option><option>Diploma</option><option>Bachelor's degree (B.E / B.Tech / B.Sc / B.Com etc.)</option><option>Master's degree</option><option>Other</option></select></label>
+        <label class="span2">Address<input id="rgAddress" type="text" autocomplete="street-address" required></label>
+        <label>City<input id="rgCity" type="text" autocomplete="address-level2" required></label>
+        <label>State
+          <select id="rgState" autocomplete="address-level1" required><option value="">Select</option><option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Andaman and Nicobar Islands</option><option>Chandigarh</option><option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option><option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option></select></label>
+        <label>Pincode<input id="rgPin" type="text" inputmode="numeric" maxlength="6" autocomplete="postal-code" required></label>
+        <label>Preferred mode
+          <select id="rgMode" required><option>Classroom</option><option>Online-live</option></select></label>
+      </div>
+      <label class="co-check"><input type="checkbox" id="rgAgree"> I confirm that the details above are correct.</label>
+
+      <fieldset class="pm">
+        <legend>Payment method</legend>
+        <label class="pm-opt"><input type="radio" name="paymethod" value="upi" checked><span><b>UPI</b><small>Google Pay, PhonePe, Paytm, BHIM or any UPI app</small></span></label>
+        <label class="pm-opt"><input type="radio" name="paymethod" value="credit"><span><b>Credit card</b><small>Visa, Mastercard, RuPay, Amex</small></span></label>
+        <label class="pm-opt"><input type="radio" name="paymethod" value="debit"><span><b>Debit card</b><small>Visa, Mastercard, RuPay</small></span></label>
+      </fieldset>
+
+      <p id="coError" class="co-error" role="alert"></p>
+      <button id="coPay" type="submit" class="btn btn-primary co-pay">Pay</button>
+      <p class="co-note" id="coMode"></p>
+    </form>
+    <div id="coDone" class="co-done" hidden></div>
+  </div>
+</div>
+
+<!-- INVOICE -->
+<div id="invoiceModal" class="checkout checkout-top" role="dialog" aria-modal="true" aria-label="Invoice" hidden>
+  <div class="checkout-backdrop" data-close-invoice></div>
+  <div class="checkout-box invoice-box">
+    <button class="checkout-x" data-close-invoice aria-label="Close invoice">✕</button>
+    <div id="invBanner" class="inv-banner" hidden></div>
+    <iframe id="invFrame" class="inv-frame" title="Invoice"></iframe>
+    <div class="inv-actions">
+      <button type="button" class="btn btn-primary" id="invPrint">Download / Print invoice</button>
+      <button type="button" class="btn btn-ghost" data-close-invoice>Close</button>
+    </div>
+    <p class="co-note">In the print window choose “Save as PDF” to download the bill.</p>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="courses.js" defer></script>
+<script src="script.js" defer></script>
+<script src="account.js" defer></script>
 </body>
 </html>
 
