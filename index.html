@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SSSEDUTECH SOLUTIONS —  Bangalore</title>
-<meta name="description" content="SSSEDUTECH SOLUTIONS is an AI Integrated Training Academy, offering industry-recognised certifications, live projects and 100% placement assistance in Bangalore.">
-<meta property="og:title" content="SSSEDUTECH SOLUTIONS —  Bangalore">
-<meta property="og:description" content="AI Integrated Training Academy. Industry certifications, live projects and 100% placement assistance.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SSSEDUTECH SOLUTIONS — Pumo Technovation Franchise, Bangalore</title>
+<meta name="description" content="SSSEDUTECH SOLUTIONS is an authorised franchise partner of Pumo Technovation, offering industry-recognised certifications, live projects and 100% placement assistance in Bangalore.">
+<meta property="og:title" content="SSSEDUTECH SOLUTIONS — Pumo Technovation Franchise, Bangalore">
+<meta property="og:description" content="Authorised franchise partner of Pumo Technovation in Bangalore. Industry certifications, live projects and 100% placement assistance.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.png">
@@ -43,12 +43,19 @@
         <li><a href="#franchise">Franchise</a></li>
         <li><a href="#courses">Courses</a></li>
         <li><a href="#placements">Placements</a></li>
-        <li><a href="#careers">Careers</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <button class="nav-cart" data-open-cart aria-label="Open cart">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 2-1.5L22 7H6"/></svg>
+      <span class="cart-count" hidden>0</span>
+    </button>
+    <button class="nav-acct" id="acctBtn" data-open-account aria-label="Student login or account">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      <span id="acctLabel">Login</span>
+    </button>
     <a href="#contact" class="nav-cta ripple">Enroll Now</a>
     <button id="hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -66,11 +73,11 @@
   </div>
   <div class="container hero-inner">
     <div class="hero-copy reveal">
-      <span class="chip"><span class="dot"></span> AI Integrated Training Academy</span>
+      <span class="chip"><span class="dot"></span> Authorised Franchise of Pumo Technovation</span>
       <h1>Build Your Career With <span class="grad">Industry Ready</span> Skills</h1>
       <p class="hero-sub">Learn. Build. Get Placed.</p>
       <p class="hero-desc">SSSEDUTECH SOLUTIONS is an advanced technology academy helping students become industry-ready through practical training, live projects, and dedicated placement support.</p>
-      <p class="hero-franchise"><strong>SSSEDUTECH SOLUTIONS </strong></p>
+      <p class="hero-franchise"><strong>SSSEDUTECH SOLUTIONS is an official franchise partner of Pumo Technovation</strong> — the parent company. Every course, certification and placement framework you learn here is powered by Pumo Technovation’s curriculum, while admissions and support are handled directly by SSSEDUTECH SOLUTIONS.</p>
       <div class="hero-typing">
         I want to master <span id="typing" class="grad"></span><span class="caret">|</span>
       </div>
@@ -84,104 +91,20 @@
         <div><strong data-count="50">0</strong><span>Hiring Partners</span></div>
       </div>
     </div>
-    <div class="hero-careers reveal" id="careers">
-      <div class="career-panel-head">
-        <span class="career-eyebrow"><span class="dot"></span>200%PLACEMENT OPPORTUNITIES</span>
-        <h2 id="careerTitle">Who can Apply?</h2>
-        <h id="careerSubtitle">Freshers<br></h>
-        <h id="careerSubtitle">working professionals<br></h>
-        <h id="careerSubtitle">Restart with confidence<br></h>
-        <h id="careerSubtitle">Looking to start carrer in IT<br></h>
-        <h id="careerSubtitle">Carrer gap candidates<br></h>
-      </div>
-
-      <!-- Step 1: sector chooser -->
-      <div class="career-sectors" id="careerSectors">
-        <button type="button" class="career-sector" data-sector="it">
-          <span class="career-icon">⌘</span>
-          <span class="career-info"><h3>IT JOBS</h3><p>Training &amp; Placement</p></span>
-          <span class="career-arrow" aria-hidden="true">→</span>
-        </button>
-        <button type="button" class="career-sector" data-sector="nonit">
-          <span class="career-icon">⚕</span>
-          <span class="career-info"><h3>NON_IT JOBS</h3><p>Training &amp; Placement</p></span>
-          <span class="career-arrow" aria-hidden="true">→</span>
-        </button>
-      </div>
-
-      <!-- Step 2a: IT JOBS -->
-      <div class="career-sector-panel" id="sector-it" data-title="IT JOBS" data-subtitle="Build Your Career in IT Training." hidden>
-        <div class="career-openings">
-          <article class="career-opening">
-            <div class="career-icon">⌘</div>
-            <div class="career-info">
-              <h3>Java Full Stack Trainer</h3>
-              <p>Training &amp; Placement <span>•</span> Full-time</p>
-            </div>
-            <button class="career-apply" type="button" data-apply-role="Java Full Stack Trainer">Apply <span aria-hidden="true">↗</span></button>
-          </article>
-          <article class="career-opening">
-            <div class="career-icon">❄</div>
-            <div class="career-info">
-              <h3>Snowflake Data Engineer</h3>
-              <p>Training &amp; Placement <span>•</span> Full-time</p>
-            </div>
-            <button class="career-apply" type="button" data-apply-role="Snowflake Data Engineer">Apply <span aria-hidden="true">↗</span></button>
-          </article>
-          <article class="career-opening">
-            <div class="career-icon">🐍</div>
-            <div class="career-info">
-              <h3>Python Full Stack Developer</h3>
-              <p>Training &amp; Placement <span>•</span> Full-time</p>
-            </div>
-            <button class="career-apply" type="button" data-apply-role="Python Full Stack Developer">Apply <span aria-hidden="true">↗</span></button>
-          </article>
-          <article class="career-opening">
-            <div class="career-icon">⚙</div>
-            <div class="career-info">
-              <h3>DevOps Engineer</h3>
-              <p>Training &amp; Placement <span>•</span> Full-time</p>
-            </div>
-            <button class="career-apply" type="button" data-apply-role="DevOps Engineer">Apply <span aria-hidden="true">↗</span></button>
-          </article>
-          <article class="career-opening">
-            <div class="career-icon">☁</div>
-            <div class="career-info">
-              <h3>Azure Data Engineer Trainer</h3>
-              <p>Training &amp; Placement <span>•</span> Full-time</p>
-            </div>
-            <button class="career-apply" type="button" data-apply-role="Azure Data Engineer Trainer">Apply <span aria-hidden="true">↗</span></button>
-          </article>
+    <div class="hero-art reveal">
+      <div class="orbit">
+        <div class="core">
+          <div class="core-inner">SSS<span>EDU</span></div>
         </div>
-      </div>
-            
-
-      <!-- Step 2b: NON_IT JOBS -->
-      <div class="career-sector-panel" id="sector-nonit" data-title="NON_IT JOBS" data-subtitle="Build Your Career in Medical Billing." hidden>
-        <div class="career-openings">
-          <article class="career-opening">
-            <div class="career-icon">⚕</div>
-            <div class="career-info">
-              <h3>Medical Coding And Billing</h3>
-              <p>Training &amp; Placement <span>•</span> Full-time</p>
-            </div>
-            <button class="career-apply" type="button" data-apply-role="Medical Coding And Billing">Apply <span aria-hidden="true">↗</span></button>
-          </article>
-          <article class="career-opening">
-            <div class="career-icon">◎</div>
-            <div class="career-info">
-              <h3>Student Counsellor</h3>
-              <p>Training &amp; Placement <span>•</span> Full-time</p>
-            </div>
-            <button class="career-apply" type="button" data-apply-role="Student Counsellor">Apply <span aria-hidden="true">↗</span></button>
-          </article>
-        </div>
-      </div>
-
-      <div class="career-panel-footer">
-        <button type="button" class="career-back" id="careerBack" hidden><span aria-hidden="true">←</span>BACK</button>
-        <span>Don't see your role? Send us your profile.</span>
-        <button type="button" class="career-send-cv" data-apply-role="General Application">Send Your CV <span aria-hidden="true">→</span></button>
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <span class="tag t1">Python</span>
+        <span class="tag t2">AWS</span>
+        <span class="tag t3">UI/UX</span>
+        <span class="tag t4">VLSI</span>
+        <span class="tag t5">Data</span>
+        <span class="tag t6">CAD</span>
       </div>
     </div>
   </div>
@@ -282,12 +205,11 @@
     <div class="section-head reveal">
       <span class="eyebrow">Programs</span>
       <h2>Explore <span class="grad">80+ Career Programs</span></h2>
-      <p>Search across categories or scroll through our full curriculum.</p>
+      <p>Choose a section, then pick a program to see its roadmap, fee structure and how to enrol.</p>
       <div class="search-wrap">
         <input id="courseSearch" type="search" placeholder="Search a course (e.g. Python, AWS, Embedded)…" aria-label="Search courses" />
         <span class="search-ico">🔍</span>
       </div>
-      <div class="chips" id="catChips"></div>
     </div>
     <div id="courseCategories"></div>
     <p id="noResults" class="no-results" hidden>No courses matched your search.</p>
@@ -459,9 +381,9 @@
     <div class="contact-grid">
       <div class="contact-card reveal">
         <h3>Get in touch</h3>
-        <p class="c-line"><span>📞</span> <a href="tel:9916973287">9916973287</a></p>
-        <p class="c-line"><span>✉️</span> <a href="mailto:sssedutechsolutions@gmail.com">sssedutechsolutions@gmail.com</a></p>
-        <p class="c-line"><span>⏰</span> Monday – Sunday · 10:00 AM – 10:00 PM </p>
+        <p class="c-line"><span>📞</span> <a href="tel:9071021021">9071021021</a></p>
+        <p class="c-line"><span>✉️</span> <a href="mailto:info@ssseedutech.com">info@ssseedutech.com</a></p>
+        <p class="c-line"><span>⏰</span> Monday – Saturday · 9:00 AM – 8:00 PM <br> Sunday - 10:00 AM - 2:00 PM</p>
         <p class="c-line addr"><span>📍</span> 536/1, 536/2, 13th Main Road, 4th Floor,<br/>MS Ramaiah Enclave, Nagasandra,<br/>Bangalore – 560073</p>
         <div class="socials">
           <a href="#" aria-label="Facebook" class="s-btn">f</a>
@@ -504,7 +426,6 @@
         <li><a href="#about">About</a></li>
         <li><a href="#courses">Courses</a></li>
         <li><a href="#placements">Placements</a></li>
-        <li><a href="#careers">Careers</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -522,8 +443,8 @@
     <div>
       <h4>Contact</h4>
       <p>536/1, 536/2, 13th Main Road,<br/>4th Floor, MS Ramaiah Enclave,<br/>Nagasandra, Bangalore – 560073</p>
-      <p>📞 <a href="tel:9916973287">9916973287</a><br/>✉️ <a href="mailto:sssedutechsolutions@gmail.com">sssedutechsolutions@gmail.com</a></p>
-      <p>Monday – Sunday · 10:00 AM – 10:00 PM</p>
+      <p>📞 <a href="tel:9071021021">9071021021</a><br/>✉️ <a href="mailto:dhanachandran@ssseedutechsoultions.com">info@ssseedutech.com</a></p>
+      <p>Mon – Sat · 9AM – 8PM</p>
     </div>
   </div>
   <div class="footer-bar">
@@ -665,9 +586,6 @@
     <p class="co-note">In the print window choose “Save as PDF” to download the bill.</p>
   </div>
 </div>
-<div> id="invToast" class="toast" role="status" aria-live="polite">
-  
-</div>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
@@ -676,4 +594,3 @@
 <script src="account.js" defer></script>
 </body>
 </html>
-
